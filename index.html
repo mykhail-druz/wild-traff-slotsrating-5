@@ -170,6 +170,11 @@
         padding: 0;
         box-sizing: border-box;
       }
+      
+      /* Remove default bullet points from all lists */
+      ul {
+        list-style-type: none;
+      }
 
       html {
         scroll-behavior: smooth;
@@ -2875,6 +2880,58 @@
           transition-duration: 0.01ms !important;
         }
       }
+
+      .responsible-gaming-notice {
+        margin-top: 1.2rem;
+        font-size: 0.92rem;
+        color: var(--text-muted);
+        background: var(--bg-tertiary);
+        border-radius: 12px;
+        padding: 0.7rem 1.2rem;
+        text-align: center;
+        border: 1px solid rgba(212, 175, 55, 0.13);
+        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.04);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        max-width: 300px;
+      }
+      .responsible-gaming-notice a {
+        color: var(--primary);
+        text-decoration: underline;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .responsible-gaming-notice a:hover {
+        color: var(--accent);
+      }
+      .responsible-gaming-footer {
+        font-size: 1.05rem;
+        color: var(--primary);
+        background: var(--bg-tertiary);
+        border-radius: 16px;
+        padding: 1rem 2rem;
+        margin-bottom: 1.2rem;
+        text-align: center;
+        border: 1px solid rgba(212, 175, 55, 0.18);
+        box-shadow: 0 2px 12px rgba(212, 175, 55, 0.07);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: center;
+        align-items: center;
+      }
+      .responsible-gaming-footer a {
+        color: var(--primary);
+        text-decoration: underline;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+      .responsible-gaming-footer a:hover {
+        color: var(--accent);
+      }
     </style>
   </head>
   <body>
@@ -2905,16 +2962,16 @@
           </li>
           <li><a href="about.html" class="nav-link">About</a></li>
         </ul>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </nav>
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu" id="mobileMenu">
       <ul class="mobile-menu-items">
         <li><a href="index.html">Home</a></li>
         <li><a href="reviews.html">Reviews</a></li>
@@ -2922,16 +2979,16 @@
         <li><a href="responsible-gaming.html">Responsible Gaming</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
-    </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-background"></div>
       <div class="hero-content">
-        <div class="hero-badge">
+        <header class="hero-badge">
           <i class="fas fa-crown"></i>
           <span>Premium Casino Reviews 2025</span>
-        </div>
+        </header>
         <h1>
           Discover the World's Most
           <span class="highlight">Exclusive</span> Online Casinos
@@ -2952,24 +3009,24 @@
             <span>Read Expert Reviews</span>
           </a>
         </div>
-        <div class="hero-stats">
-          <div class="stat-card">
-            <div class="stat-number" data-count="500">0</div>
-            <div class="stat-label">Casinos Reviewed</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-count="2000000">0</div>
-            <div class="stat-label">Players Served</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-count="98">0</div>
-            <div class="stat-label">Satisfaction Rate</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Expert Support</div>
-          </div>
-        </div>
+        <ul class="hero-stats">
+          <li class="stat-card">
+            <strong class="stat-number" data-count="500">0</strong>
+            <span class="stat-label">Casinos Reviewed</span>
+          </li>
+          <li class="stat-card">
+            <strong class="stat-number" data-count="2000000">0</strong>
+            <span class="stat-label">Players Served</span>
+          </li>
+          <li class="stat-card">
+            <strong class="stat-number" data-count="98">0</strong>
+            <span class="stat-label">Satisfaction Rate</span>
+          </li>
+          <li class="stat-card">
+            <strong class="stat-number">24/7</strong>
+            <span class="stat-label">Expert Support</span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -2977,7 +3034,7 @@
     <!-- Casino Section -->
     <section class="casino-section" id="casinos">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <h2 class="section-title">Elite Casino Collection</h2>
           <p class="section-subtitle">
             Our distinguished panel of gaming experts has handpicked these
@@ -2985,10 +3042,10 @@
             protocols, game diversity, bonus generosity, and customer service
             excellence.
           </p>
-        </div>
+        </header>
 
         <!-- Filter Controls -->
-        <div class="filter-controls">
+        <nav class="filter-controls" aria-label="Casino filters">
           <button class="filter-btn active" data-filter="all">
             All Casinos
           </button>
@@ -3002,23 +3059,23 @@
           <button class="filter-btn" data-filter="mobile">
             Mobile Optimized
           </button>
-        </div>
+        </nav>
 
         <div class="casino-grid">
           <!-- JackpotCity Casino -->
-          <div
+          <article
             class="casino-card"
             data-categories="high-bonus fast-payout mobile"
           >
-            <div class="casino-left-section">
+            <aside class="casino-left-section">
               <div class="casino-rank">1</div>
-              <div class="casino-logo">
+              <figure class="casino-logo">
                 <img
                   src="img/jackpotcity.png"
                   alt="JackpotCity Casino"
                   loading="lazy"
                 />
-              </div>
+              </figure>
               <div class="casino-rating">
                 <div class="stars">
                   <i class="fas fa-star star"></i>
@@ -3029,9 +3086,9 @@
                 </div>
                 <span class="rating-score">9.8</span>
               </div>
-            </div>
+            </aside>
 
-            <div class="casino-info-section">
+            <section class="casino-info-section">
               <h3 class="casino-title">JackpotCity Casino</h3>
               <div class="casino-features">
                 <span class="feature-badge">Licensed & Regulated</span>
@@ -3039,32 +3096,32 @@
                 <span class="feature-badge">Fast Payouts</span>
                 <span class="feature-badge">24/7 Support</span>
               </div>
-              <div class="casino-description">
+              <p class="casino-description">
                 The crown jewel of online gaming, featuring an unparalleled
                 selection of premium slots, generous bonuses, and world-class
                 customer service.
-              </div>
-              <div class="casino-specs">
+              </p>
+              <dl class="casino-specs">
                 <div class="spec-item">
-                  <div class="spec-value">2500+</div>
-                  <div class="spec-label">Games</div>
+                  <dt class="spec-value">2500+</dt>
+                  <dd class="spec-label">Games</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">98.5%</div>
-                  <div class="spec-label">RTP</div>
+                  <dt class="spec-value">98.5%</dt>
+                  <dd class="spec-label">RTP</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">1-24h</div>
-                  <div class="spec-label">Payout</div>
+                  <dt class="spec-value">1-24h</dt>
+                  <dd class="spec-label">Payout</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">50+</div>
-                  <div class="spec-label">Providers</div>
+                  <dt class="spec-value">50+</dt>
+                  <dd class="spec-label">Providers</dd>
                 </div>
-              </div>
-            </div>
+              </dl>
+            </section>
 
-            <div class="casino-actions-section">
+            <aside class="casino-actions-section">
               <div class="casino-bonus-card">
                 <div class="bonus-amount">$1,600</div>
                 <div class="bonus-terms">Welcome Bonus + 100 Free Spins</div>
@@ -3078,17 +3135,22 @@
                   <i class="fas fa-info-circle"></i>
                   <span>Review</span>
                 </a>
+                <div class="responsible-gaming-notice">
+                  <span>18+</span> • <span>Gambling can be addictive</span> •
+                  <a href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer">BeGambleAware</a>
+                  • <a href="https://www.gamcare.org.uk/" target="_blank" rel="noopener noreferrer">GamCare</a>
+                </div>
               </div>
-            </div>
-          </div>
+            </aside>
+          </article>
 
           <!-- Queen Casino -->
-          <div class="casino-card" data-categories="new high-bonus mobile">
-            <div class="casino-left-section">
+          <article class="casino-card" data-categories="new high-bonus mobile">
+            <aside class="casino-left-section">
               <div class="casino-rank">2</div>
-              <div class="casino-logo">
+              <figure class="casino-logo">
                 <img src="img/queen.png" alt="Queen Casino" loading="lazy" />
-              </div>
+              </figure>
               <div class="casino-rating">
                 <div class="stars">
                   <i class="fas fa-star star"></i>
@@ -3099,9 +3161,9 @@
                 </div>
                 <span class="rating-score">9.6</span>
               </div>
-            </div>
+            </aside>
 
-            <div class="casino-info-section">
+            <section class="casino-info-section">
               <h3 class="casino-title">Queen Casino</h3>
               <div class="casino-features">
                 <span class="feature-badge">VIP Program</span>
@@ -3109,32 +3171,32 @@
                 <span class="feature-badge">Crypto Friendly</span>
                 <span class="feature-badge">Tournament Hub</span>
               </div>
-              <div class="casino-description">
+              <p class="casino-description">
                 Royal treatment awaits at Queen Casino, where elegance meets
                 excitement. Experience exclusive games, personalized service,
                 and regal rewards.
-              </div>
-              <div class="casino-specs">
+              </p>
+              <dl class="casino-specs">
                 <div class="spec-item">
-                  <div class="spec-value">3000+</div>
-                  <div class="spec-label">Games</div>
+                  <dt class="spec-value">3000+</dt>
+                  <dd class="spec-label">Games</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">97.8%</div>
-                  <div class="spec-label">RTP</div>
+                  <dt class="spec-value">97.8%</dt>
+                  <dd class="spec-label">RTP</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">2-48h</div>
-                  <div class="spec-label">Payout</div>
+                  <dt class="spec-value">2-48h</dt>
+                  <dd class="spec-label">Payout</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">60+</div>
-                  <div class="spec-label">Providers</div>
+                  <dt class="spec-value">60+</dt>
+                  <dd class="spec-label">Providers</dd>
                 </div>
-              </div>
-            </div>
+              </dl>
+            </section>
 
-            <div class="casino-actions-section">
+            <aside class="casino-actions-section">
               <div class="casino-bonus-card">
                 <div class="bonus-amount">$2,000</div>
                 <div class="bonus-terms">Royal Welcome Package + 200 FS</div>
@@ -3148,9 +3210,14 @@
                   <i class="fas fa-info-circle"></i>
                   <span>Review</span>
                 </a>
+                <div class="responsible-gaming-notice">
+                  <span>18+</span> • <span>Gambling can be addictive</span> •
+                  <a href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer">BeGambleAware</a>
+                  • <a href="https://www.gamcare.org.uk/" target="_blank" rel="noopener noreferrer">GamCare</a>
+                </div>
               </div>
-            </div>
-          </div>
+            </aside>
+          </article>
 
           <!-- Luckster Casino -->
           <div class="casino-card" data-categories="new fast-payout mobile">
@@ -3222,17 +3289,22 @@
                   <i class="fas fa-info-circle"></i>
                   <span>Review</span>
                 </a>
+                <div class="responsible-gaming-notice">
+                  <span>18+</span> • <span>Gambling can be addictive</span> •
+                  <a href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer">BeGambleAware</a>
+                  • <a href="https://www.gamcare.org.uk/" target="_blank" rel="noopener noreferrer">GamCare</a>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Plaza Casino -->
-          <div class="casino-card" data-categories="mobile">
-            <div class="casino-left-section">
+          <article class="casino-card" data-categories="mobile">
+            <aside class="casino-left-section">
               <div class="casino-rank">4</div>
-              <div class="casino-logo">
+              <figure class="casino-logo">
                 <img src="img/plaza.png" alt="Plaza Casino" loading="lazy" />
-              </div>
+              </figure>
               <div class="casino-rating">
                 <div class="stars">
                   <i class="fas fa-star star"></i>
@@ -3243,9 +3315,9 @@
                 </div>
                 <span class="rating-score">9.2</span>
               </div>
-            </div>
+            </aside>
 
-            <div class="casino-info-section">
+            <section class="casino-info-section">
               <h3 class="casino-title">Plaza Casino</h3>
               <div class="casino-features">
                 <span class="feature-badge">Classic Games</span>
@@ -3253,32 +3325,32 @@
                 <span class="feature-badge">Table Games</span>
                 <span class="feature-badge">Poker Room</span>
               </div>
-              <div class="casino-description">
+              <p class="casino-description">
                 Timeless elegance meets modern sophistication at Plaza Casino.
                 A distinguished gaming destination offering classic table
                 games and premium slots.
-              </div>
-              <div class="casino-specs">
+              </p>
+              <dl class="casino-specs">
                 <div class="spec-item">
-                  <div class="spec-value">1500+</div>
-                  <div class="spec-label">Games</div>
+                  <dt class="spec-value">1500+</dt>
+                  <dd class="spec-label">Games</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">95.8%</div>
-                  <div class="spec-label">RTP</div>
+                  <dt class="spec-value">95.8%</dt>
+                  <dd class="spec-label">RTP</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">3-72h</div>
-                  <div class="spec-label">Payout</div>
+                  <dt class="spec-value">3-72h</dt>
+                  <dd class="spec-label">Payout</dd>
                 </div>
                 <div class="spec-item">
-                  <div class="spec-value">35+</div>
-                  <div class="spec-label">Providers</div>
+                  <dt class="spec-value">35+</dt>
+                  <dd class="spec-label">Providers</dd>
                 </div>
-              </div>
-            </div>
+              </dl>
+            </section>
 
-            <div class="casino-actions-section">
+            <aside class="casino-actions-section">
               <div class="casino-bonus-card">
                 <div class="bonus-amount">$800</div>
                 <div class="bonus-terms">Classic Welcome Package</div>
@@ -3292,9 +3364,14 @@
                   <i class="fas fa-info-circle"></i>
                   <span>Review</span>
                 </a>
+                <div class="responsible-gaming-notice">
+                  <span>18+</span> • <span>Gambling can be addictive</span> •
+                  <a href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer">BeGambleAware</a>
+                  • <a href="https://www.gamcare.org.uk/" target="_blank" rel="noopener noreferrer">GamCare</a>
+                </div>
               </div>
-            </div>
-          </div>
+            </aside>
+          </article>
         </div>
       </div>
     </section>
@@ -3302,7 +3379,7 @@
     <!-- GoldenMister Section -->
     <section class="casino-section" id="goldenmister">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <h2 class="section-title">
             UK's Premier Online Casino Experience - GoldenMister
           </h2>
@@ -3314,10 +3391,10 @@
             games UK and the most generous free spins no deposit UK bonus in the
             market.
           </p>
-        </div>
+        </header>
 
         <!-- Hero Banner -->
-        <div class="goldenmister-hero">
+        <article class="goldenmister-hero">
           <div class="goldenmister-hero-content">
             <h3>The Ultimate UK Gaming Experience</h3>
             <p>
@@ -3327,25 +3404,25 @@
             </p>
             <a href="#" class="gm-btn">Join Now <i class="fas fa-arrow-right"></i></a>
           </div>
-          <div class="goldenmister-hero-stats">
-            <div class="gm-stat">
-              <div class="gm-stat-value">2000+</div>
-              <div class="gm-stat-label">Premium Games</div>
-            </div>
-            <div class="gm-stat">
-              <div class="gm-stat-value">50</div>
-              <div class="gm-stat-label">Free Spins</div>
-            </div>
-            <div class="gm-stat">
-              <div class="gm-stat-value">24/7</div>
-              <div class="gm-stat-label">Support</div>
-            </div>
-            <div class="gm-stat">
-              <div class="gm-stat-value">2hr</div>
-              <div class="gm-stat-label">Fast Payouts</div>
-            </div>
-          </div>
-        </div>
+          <ul class="goldenmister-hero-stats">
+            <li class="gm-stat">
+              <strong class="gm-stat-value">2000+</strong>
+              <span class="gm-stat-label">Premium Games</span>
+            </li>
+            <li class="gm-stat">
+              <strong class="gm-stat-value">50</strong>
+              <span class="gm-stat-label">Free Spins</span>
+            </li>
+            <li class="gm-stat">
+              <strong class="gm-stat-value">24/7</strong>
+              <span class="gm-stat-label">Support</span>
+            </li>
+            <li class="gm-stat">
+              <strong class="gm-stat-value">2hr</strong>
+              <span class="gm-stat-label">Fast Payouts</span>
+            </li>
+          </ul>
+        </article>
 
         <!-- Feature Grid -->
         <div class="goldenmister-grid">
@@ -3822,6 +3899,11 @@
         </div>
 
         <div class="footer-bottom">
+          <div class="responsible-gaming-footer">
+            <span>18+</span> • <span>Gambling can be addictive</span> •
+            <a href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer">BeGambleAware</a>
+            • <a href="https://www.gamcare.org.uk/" target="_blank" rel="noopener noreferrer">GamCare</a>
+          </div>
           <p>
             &copy; 2025 SlotsRating. All rights reserved. | 18+ | Play
             Responsibly
